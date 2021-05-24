@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ko">
+<script type="text/javascript" src="/static/jquery-3.2.1.min.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <title>질문답변 인공지능 '언제나 깨어있는 민태호 mk.2'</title>
+</head>
+
+
+
+<body>
+
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<script>
+    $('#btn_submit').click(function() {
+        send();
+    });
+    $('#form').on('submit', function(e){
+       e.preventDefault();
+       send();
+    });
+    $('#close_chat_btn').on('click', function(){
+        $('#chat_wrap').hide().empty();
+    });
+    function send(){
+        $('#divbox').append('<div class="msg_box send"><span>'+$('#input1').val()+'<span></div>');
+        $("#divbox").scrollTop($("#divbox")[0].scrollHeight);
+        console.log("serial"+$('form').serialize())
+        $.ajax({
+            url: 'http://193.123.242.23:8000/chat_service/',
+            type: 'post',
+            dataType: 'json',
+            data: $('form').serialize(),
+            success: function(data) {
+                <!--$('#reponse').html(data.response);-->
+                $('#divbox').append('<div class="msg_box receive"><span>'+ data.response +'<span></div>');
+                $("#divbox").scrollTop($("#divbox")[0].scrollHeight);
+            }
+        });
+        $('#input1').val('');
+    }
+</script>
+
+
+
+
+</body>
+
+
+
+<style>
+
+
+ 
+        .main {
+            min-width: 320px;
+            max-width: 800px;
+            padding: 10px;    
+            border-radius: 7px;;        
+            background: #ffffff;}
+ 
+        section {
+            display: none;
+            padding: 20px 0 0;
+            border-top: 1px solid #ddd;}
+ 
+        input {
+              display: none;}
+ 
+        label {
+            display: inline-block;
+            padding: 15px 25px;
+            font-weight: 600;
+            color: #bbb;
+            border: 1px solid transparent;}
+ 
+        label:hover {
+            color: #2e9cdf;
+            cursor: pointer;}
+ 
+        /*input 클릭시, label 스타일*/
+        input:checked + label {
+              color: #555;
+              border: 1px solid #ddd;
+              border-top: 2px solid #2e9cdf;
+              border-bottom: 1px solid #ffffff;}
+ 
+        #tab1:checked ~ #content1,
+        #tab2:checked ~ #content2,
+        #tab3:checked ~ #content3,
+        #tab4:checked ~ #content4 {
+            display: block;}
+
+
+
+</style>
+
+
+<div class="main" style="text-align:left">
+ 
+    <input id="tab1" type="radio" name="tabs" checked> 
+    <label for="tab1">언깨민 mk.2</label>
+ 
+    <input id="tab2" type="radio" name="tabs">
+    <label for="tab2">이온설명봇 언깨민</label>
+ 
+ 
+    <section id="content1" style="margin-bottom:20px;">
+
+
+<script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+<df-messenger
+  intent="WELCOME"
+  chat-title="언제나 깨어있는 민태호 mk.2"
+  agent-id="2b738556-ab4e-47cb-a342-08e360800217"
+  language-code="ko"
+></df-messengerreturn;
+
+    </section>
+ 
+    <section id="content2" style="margin-bottom:20px;">
+
+
+  <style>
+  df-messenger {
+   --df-messenger-bot-message: #878fac;
+   --df-messenger-button-titlebar-color: #df9b56;
+   --df-messenger-chat-background-color: #fafafa;
+   --df-messenger-font-color: white;
+   --df-messenger-send-icon: #878fac;
+   --df-messenger-user-message: #479b3d;
+  }
+  </style>
+
+
+
+
+    </section>
+
+</html>
+

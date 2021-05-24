@@ -11,11 +11,6 @@
 <body>
 
 
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
-
 <script>
     $('#btn_submit').click(function() {
         send();
@@ -48,6 +43,24 @@
 
 
 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+<df-messenger
+  intent="WELCOME"
+  chat-title="언제나 깨어있는 민태호 mk.2"
+  agent-id="2b738556-ab4e-47cb-a342-08e360800217"
+  language-code="ko"
+  wait-open
+></df-messenger>
+
+
+
+
+
+
 
 </body>
 
@@ -58,8 +71,7 @@
 
  
         .main {
-            min-width: 320px;
-            max-width: 800px;
+            meta name="viewport" content="width=device-width, initial-scale=1.0"
             padding: 10px;    
             border-radius: 7px;;        
             background: #ffffff;}
@@ -104,59 +116,43 @@
 <div class="main" style="text-align:left">
  
     <input id="tab1" type="radio" name="tabs" checked> 
-    <label for="tab1">언깨민 mk.2</label>
+    <label for="tab1">메뉴얼</label>
  
     <input id="tab2" type="radio" name="tabs">
     <label for="tab2">이온설명봇 언깨민</label>
+ 
+    <input id="tab3" type="radio" name="tabs">
+    <label for="tab3">잠들어버린 언깨민</label>
  
  
     <section id="content1" style="margin-bottom:20px;">
 
 
-
-<script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
-<df-messenger
-  intent="WELCOME"
-  chat-title="언제나 깨어있는 민태호 mk.2"
-  agent-id="2b738556-ab4e-47cb-a342-08e360800217"
-  language-code="ko"
-></df-messenger>
-
-
+언깨민(Unkemin)은 '알려지지 않은 탁월함(Unknown Eminence)'의 줄임말로,
+언깨민을 통해 과학을 배우는 여러분이 스스로의 숨겨진 능력을 발견하길 바란다는
+의미가 담겨있습니다.
+<br><br>
+언깨민 업그레이드 중입니다.
+이 페이지는 신경쓰지 말고 오른쪽 아래에서
+언깨민을 활성화시켜 질문하세요. ↘
 
     </section>
  
     <section id="content2" style="margin-bottom:20px;">
 
+<iframe width="320" height="500" allow="microphone;" src="https://console.dialogflow.com/api-client/demo/embedded/e9052237-42ce-4472-8ab1-6d2a9d359180"></iframe>
+
+    </section>
+
+    <section id="content3" style="margin-bottom:20px;">
 
 
-<script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
-<df-messenger
-  intent="WELCOME"
-  chat-title="이온설명봇 언깨민"
-  agent-id="e9052237-42ce-4472-8ab1-6d2a9d359180"
-  language-code="ko"
-></df-messenger>
-
-
-
-
-  <style>
-  df-messenger {
-   --df-messenger-bot-message: #878fac;
-   --df-messenger-button-titlebar-color: #df9b56;
-   --df-messenger-chat-background-color: #fafafa;
-   --df-messenger-font-color: white;
-   --df-messenger-send-icon: #878fac;
-   --df-messenger-user-message: #479b3d;
-  }
-  </style>
-
-
+<iframe width="320" height="500" allow="microphone;" src="https://console.dialogflow.com/api-client/demo/embedded/6f383e7f-497c-421a-b9da-92c912975931"></iframe>
 
 
 
     </section>
 
 </html>
+
 
