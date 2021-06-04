@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ko">
+<script type="text/javascript" src="/static/jquery-3.2.1.min.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <title>질문답변 인공지능 '언제나 깨어있는 민태호 mk.2'</title>
+</head>
+
+
+
+<body>
+
+
+<script>
+    $('#btn_submit').click(function() {
+        send();
+    });
+    $('#form').on('submit', function(e){
+       e.preventDefault();
+       send();
+    });
+    $('#close_chat_btn').on('click', function(){
+        $('#chat_wrap').hide().empty();
+    });
+    function send(){
+        $('#divbox').append('<div class="msg_box send"><span>'+$('#input1').val()+'<span></div>');
+        $("#divbox").scrollTop($("#divbox")[0].scrollHeight);
+        console.log("serial"+$('form').serialize())
+        $.ajax({
+            url: 'http://193.123.242.23:8000/chat_service/',
+            type: 'post',
+            dataType: 'json',
+            data: $('form').serialize(),
+            success: function(data) {
+                <!--$('#reponse').html(data.response);-->
+                $('#divbox').append('<div class="msg_box receive"><span>'+ data.response +'<span></div>');
+                $("#divbox").scrollTop($("#divbox")[0].scrollHeight);
+            }
+        });
+        $('#input1').val('');
+    }
+</script>
+
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+<df-messenger
+  intent="WELCOME"
+  chat-title="언제나 깨어있는 민태호 mk.2"
+  agent-id="2b738556-ab4e-47cb-a342-08e360800217"
+  language-code="ko"
+  wait-open
+></df-messenger>
+
+
+
+
+
+
+
+</body>
+
+
+
+<style>
+
+
+ 
+        .main {
+            meta name="viewport" content="width=device-width, initial-scale=1.0"
+            padding: 10px;    
+            border-radius: 7px;;        
+            background: #ffffff;}
+ 
+        section {
+            display: none;
+            padding: 20px 0 0;
+            border-top: 1px solid #ddd;}
+ 
+        input {
+              display: none;}
+ 
+        label {
+            display: inline-block;
+            padding: 15px 25px;
+            font-weight: 600;
+            color: #bbb;
+            border: 1px solid transparent;}
+ 
+        label:hover {
+            color: #2e9cdf;
+            cursor: pointer;}
+ 
+        /*input 클릭시, label 스타일*/
+        input:checked + label {
+              color: #555;
+              border: 1px solid #ddd;
+              border-top: 2px solid #2e9cdf;
+              border-bottom: 1px solid #ffffff;}
+ 
+        #tab1:checked ~ #content1,
+        #tab2:checked ~ #content2,
+        #tab3:checked ~ #content3,
+        #tab4:checked ~ #content4 {
+            display: block;}
+
+
+
+</style>
+
+
+<div class="main" style="text-align:left">
+ 
+    <input id="tab1" type="radio" name="tabs" checked> 
+    <label for="tab1">메뉴얼</label>
+ 
+    <input id="tab2" type="radio" name="tabs">
+    <label for="tab2">이온설명봇 언깨민</label>
+ 
+    <input id="tab3" type="radio" name="tabs">
+    <label for="tab3">잠들어버린 언깨민</label>
+ 
+ 
+    <section id="content1" style="margin-bottom:20px;">
+
+
+언깨민(UnkEmin)은 '알려지지 않은 탁월함(Unknown Eminence)'의 줄임말로,
+<br>
+언깨민을 통해 과학을 배우는 여러분이 스스로의 숨겨진 능력을 발견하길 바란다는
+의미가 담겨있습니다.
+<br><br>
+※언깨민 사용 방법
+<br>
+1. 이온에 관하여(16번 프린트) 언깨민과의 대화를 통해 문제를 풀 때는 위↑ 탭에서 '이온설명봇 언깨민'을 선택하여 진행하세요.
+<br>
+2. 기본적인 개념 질문, 간단한 힌트만 필요한 질문은 오른쪽 아래↘ 버튼으로 원조 언깨민을 활성화하여 물어보세요.
+<br>
+3. '잠들어버린 언깨민'은 자고 있으니까 깨우지 마세요.
+<br><br><br><br><br>
+
+    </section>
+ 
+    <section id="content2" style="margin-bottom:20px;">
+
+<iframe style="display:block; width:90vw; height: 85vh" allow="microphone;" src="https://console.dialogflow.com/api-client/demo/embedded/e9052237-42ce-4472-8ab1-6d2a9d359180"></iframe>
+
+    </section>
+
+    <section id="content3" style="margin-bottom:20px;">
+
+
+<iframe style="display:block; width:90vw; height: 85vh" allow="microphone;" src="https://console.dialogflow.com/api-client/demo/embedded/6f383e7f-497c-421a-b9da-92c912975931"></iframe>
+
+
+
+    </section>
+
+</html>
+
+
